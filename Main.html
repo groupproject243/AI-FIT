@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <title>AI Fit | Smarter Workouts</title>
+   <link rel="icon" type="image/png" href="Logo.png">
+  <link rel="stylesheet" href="Main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav>
+  <div class="logo">AI Fit</div>
+  <div class="hamburger" id="hamburger">&#9776;</div>
+  <ul id="nav-links" class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#Plans">Workout Plans</a></li>
+    <li><a href="#Pricing">Pricing</a></li>
+  </ul>
+</nav>
+
+  <section class="hero fade-in" id="home">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="videoplayback.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay"></div>
+    <h1>Smarter Workouts. Better Results.</h1>
+    <p>Get AI-generated workout plans tailored to your fitness level, goals, and equipment availability.</p>
+    <a href="#plans">Generate Your Plan</a>
+  </section>
+
+  
+
+  <!-- Summary Section -->
+  <section class="summary-section fade-in">
+    <h2>Personal summary based on your answers</h2>
+
+    <div class="summary-box">
+      <div class="bmi">
+        <p class="label">Current BMI</p>
+        <h3 id="bmi-value">0 BMI</h3>
+        <div class="bmi-bar">
+          <div class="bar"></div>
+          <div class="pointer" style="left: 0%;"></div>
+        </div>
+        <p class="status">Obese</p>
+        <p class="desc">The body mass index (BMI) is a measure that uses your height and weight to work out if your weight is healthy.</p>
+      </div>
+
+      <div class="intake-grid">
+        <div class="intake-card">
+          <div class="recommend">recommended</div>
+          <p class="label">Daily calorie intake</p>
+          <h3 id="calories">0 kcal</h3>
+          <div class="bar-track"><div class="bar-fill" style="width: 36%;"></div></div>
+          <div class="bar-labels"><span>1000 kcal</span><span>5000 kcal</span></div>
+        </div>
+        <div class="intake-card">
+          <div class="recommend">recommended</div>
+          <p class="label">Daily water intake</p>
+          <h3 id="water">0 l</h3>
+          <div class="water-cups">
+            <span class="cup"></span><span class="cup"></span><span class="cup"></span><span class="cup"></span>
+            <span class="cup"></span><span class="cup"></span><span class="cup"></span><span class="cup"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <h2>Personalized plan for <span class="highlight">You</span> is <span class="highlight orange">ready!</span></h2>
+
+  <div class="plan-grid">
+    <div class="plan-item">⏱️ <strong>1 hour</strong><br>Workout Duration</div>
+    <div class="plan-item">💪 <strong>Intermediate</strong><br>Fitness Level</div>
+    <div class="plan-item">🏠 <strong>Home</strong><br>Place to Workout</div>
+    <div class="plan-item">📅 <strong>3 times per week</strong><br>Workout Frequency</div>
+  </div>
+
+  <h3>Goals for your program also include:</h3>
+  <ul class="goals-list">
+    <li>🧘 Reduce stress</li>
+    <li>😴 Improve sleep</li>
+    <li>💡 Self-discipline</li>
+    <li>🏃‍♀️ Feel healthier</li>
+    <li>🧱 Form a physical habit</li>
+  </ul>
+</section>
+
+
+<section class="section fade-in services-section">
+  <h2><span class="highlight">Our</span> Services</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <img src="image1.jpg" alt="Physical Fitness" />
+      <h3>Physical Fitness</h3>
+    </div>
+    <div class="service-card">
+      <img src="image2.jpg" alt="Weight Gain" />
+      <h3>Weight Gain</h3>
+    </div>
+    <div class="service-card">
+      <img src="image3.jpg" alt="Strength Training" />
+      <h3>Strength Training</h3>
+    </div>
+    <div class="service-card">
+      <img src="image4.jpg" alt="Fat Lose" />
+      <h3>Fat Loss</h3>
+    </div>
+    <div class="service-card">
+      <img src="image5.jpg" alt="Weightlifting" />
+      <h3>Weightlifting</h3>
+    </div>
+    <div class="service-card">
+      <img src="about.jpg" alt="Running" />
+      <h3>Running</h3>
+    </div>
+  </div>
+</section>
+
+<!-- Top 10 Exercises Section -->
+<section class="top-exercises-section" id="Plans">
+  <h2 class="section-title">🔥 Top 10 Most Popular Exercises</h2>
+  <div class="exercise-grid">
+  
+    <!-- Card 1 -->
+    <div class="exercise-card">
+      <img src="ex1.jpg" alt="Dumbbell Bicep Curl">
+      <div class="content">
+        <h3>1. Dumbbell Bicep Curl</h3>
+        <p>Targets the biceps directly, improves arm shape and strength. Great for beginners.</p>
+        <span class="tag">Beginner • Dumbbell</span>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="exercise-card">
+      <img src="ex2.jpg" alt="Hammer Curls">
+      <div class="content">
+        <h3>2. Hammer Curls</h3>
+        <p>Engages both biceps and forearms. Helps develop overall arm thickness.</p>
+        <span class="tag">Beginner • Dumbbell</span>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="exercise-card">
+      <img src="ex3.jpg" alt="Dumbbell Row">
+      <div class="content">
+        <h3>3. Dumbbell Row</h3>
+        <p>Strengthens back muscles and improves posture. Great for targeting lats.</p>
+        <span class="tag">Intermediate • Dumbbell</span>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="exercise-card">
+      <img src="ex4.jpg" alt="Dumbbell Bench Press">
+      <div class="content">
+        <h3>4. Dumbbell Bench Press</h3>
+        <p>Builds chest strength and stability. A core push movement for upper body.</p>
+        <span class="tag">Intermediate • Dumbbell</span>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="exercise-card">
+      <img src="ex5.jpg" alt="Lat Pulldown">
+      <div class="content">
+        <h3>5. Lat Pulldown</h3>
+        <p>Primarily targets lats and upper back. Great for wide back development.</p>
+        <span class="tag">Beginner • Cable</span>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="exercise-card">
+      <img src="ex6.jpg" alt="Barbell Bench Press">
+      <div class="content">
+        <h3>6. Barbell Bench Press</h3>
+        <p>Classic compound chest exercise. Boosts strength and muscle mass.</p>
+        <span class="tag">Intermediate • Barbell</span>
+      </div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="exercise-card">
+      <img src="ex7.jpg" alt="Dumbbell Shoulder Press">
+      <div class="content">
+        <h3>7. Dumbbell Shoulder Press</h3>
+        <p>Strengthens deltoids and improves overhead pressing power.</p>
+        <span class="tag">Intermediate • Dumbbell</span>
+      </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="exercise-card">
+      <img src="ex8.jpg" alt="Dumbbell Fly">
+      <div class="content">
+        <h3>8. Dumbbell Fly</h3>
+        <p>Expands and isolates the chest muscles. Great finisher for chest day.</p>
+        <span class="tag">Beginner • Dumbbell</span>
+      </div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="exercise-card">
+      <img src="ex9.jpg" alt="Cable Row">
+      <div class="content">
+        <h3>9. Cable Row</h3>
+        <p>Works the mid-back and biceps. Enhances posture and pulling strength.</p>
+        <span class="tag">Beginner • Cable</span>
+      </div>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="exercise-card">
+      <img src="ex10.jpg" alt="Dumbbell Skullcrusher">
+      <div class="content">
+        <h3>10. Dumbbell Skullcrusher</h3>
+        <p>Isolates the triceps for size and strength. Excellent for arm workouts.</p>
+        <span class="tag">Intermediate • Dumbbell</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+  
+  <section class="ai-zigzag-section">
+  <div class="zigzag-row">
+    <div class="zigzag-text">
+      <span class="tag">💡 How it works</span>
+      <h3>Take the guesswork out of strength training.</h3>
+      <p>Always know what to train. AI Fit removes the pain of planning to let you focus on making progress.</p>
+    </div>
+    <div class="zigzag-image">
+      <img src="step1.png" alt="Strength training" />
+    </div>
+  </div>
+
+  <div class="zigzag-row reverse">
+    <div class="zigzag-text">
+      <span class="tag">📈 Smart Tracking</span>
+      <h3>Track your progress every step of the way.</h3>
+      <p>AI Fit learns from your training history to adapt your recommendations dynamically.</p>
+    </div>
+    <div class="zigzag-image">
+      <img src="step2.png" alt="Progress tracking" />
+    </div>
+  </div>
+
+  <div class="zigzag-row">
+    <div class="zigzag-text">
+      <span class="tag">🛠️ Custom-Fit Workouts</span>
+      <h3>Personalized workouts that adapt to your life.</h3>
+      <p>AI Fit adjusts each workout around your equipment, schedule, and goals — without sacrificing results.</p>
+    </div>
+    <div class="zigzag-image">
+      <img src="step3.png" alt="Custom workouts" />
+    </div>
+  </div>
+
+  <div class="zigzag-row reverse">
+    <div class="zigzag-text">
+      <span class="tag">🧠 Monitored Recovery</span>
+      <h3>Always know which muscles to train next.</h3>
+      <p>AI Fit tracks recovery to optimize performance and prevent injury.</p>
+    </div>
+    <div class="zigzag-image">
+      <img src="step4.png" alt="Muscle recovery" />
+    </div>
+  </div>
+</section>
+
+
+  <section class="section fade-in pricing-plan-section" id="Pricing">
+  <div class="plan-header">
+    <p class="live-counter">1103 people bought workout plans in the last hour</p>
+    <h2>Choose the best plan for you</h2>
+  </div>
+
+  <div class="pricing-layout">
+    <div class="plan-image">
+      <img src="men1.png" alt="Muscular Model" />
+    </div>
+    <div class="plan-options">
+      <label class="plan-option">
+        <input type="radio" name="plan" />
+        <div>
+          <span class="plan-name">1-WEEK PLAN</span>
+          <span class="plan-price">2.61 <small>AED</small> per day</span>
+          <span class="plan-total">18.36 AED</span>
+        </div>
+      </label>
+
+      <label class="plan-option selected">
+        <input type="radio" name="plan" checked />
+        <div>
+          <span class="plan-name">4-WEEK PLAN</span>
+          <span class="plan-price">5 <small>AED</small> per day</span>
+          <span class="plan-total">150 AED</span>
+        </div>
+        <div class="most-popular">MOST POPULAR</div>
+      </label>
+
+      <label class="plan-option">
+        <input type="radio" name="plan" />
+        <div>
+          <span class="plan-name">12-WEEK PLAN</span>
+          <span class="plan-price">2.50 <small>AED</small> per day</span>
+          <span class="plan-total">220 AED</span>
+        </div>
+      </label>
+
+      <button class="continue-btn">Continue <i class="fas fa-arrow-right"></i></button>
+      <p class="subscription-note">
+        By continuing, you agree that your subscription will be auto-renewed at the full price of 39.99 USD each month...
+        <a href="#">Settings</a>, <a href="#">Subscription terms</a>, <a href="#">Refund policy</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in money-back-section">
+  <div class="guarantee-text">
+    <h2>Money-Back Guarantee</h2>
+    <p>We believe that our plan may work for you and you'll get visible results in 4 weeks! We are even ready to completely refund you within 30 days...</p>
+    <a href="#" class="policy-link">money-back policy</a>
+  </div>
+  <div class="guarantee-badge">
+    <div class="badge-circle">
+      <span>30</span>
+      <small>DAYS<br>AFTER PURCHASE</small>
+    </div>
+  </div>
+</section>
+
+
+  <footer class="footer">
+    <p>&copy; 2025 AI Fit. All rights reserved.</p>
+    <p><a href="Terms&Conditions.html" style="color: #00f7ff;">Terms</a> | <a href="Terms&Conditions.html" style="color: #00f7ff;">Privacy</a></p>
+  </footer>
+
+  <script src="Main.js"></script>
+
+  <!-- AI Fit Chatbot -->
+  <div class="chatbot-container" id="chatbot-container" style="display: none;">
+    <div class="chat-header">
+      <span>🤖 AI Fit Chatbot</span>
+      <button onclick="toggleChat()">×</button>
+    </div>
+    <div class="chat-body" id="chat-body"></div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Ask me anything..." onkeydown="handleKey(event)" />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+  <div class="chat-icon" onclick="toggleChat()">🤖</div>
+</body>
+</html>
