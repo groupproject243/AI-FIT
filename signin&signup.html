@@ -4,40 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sign In / Sign Up</title>
-   <link rel="icon" type="image/png" href="Logo.png">
-   <link rel="stylesheet" href="Login.css">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
-  
+  <link rel="icon" type="image/png" href="Logo.png">
+  <link rel="stylesheet" href="Login.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div class="container" id="authContainer">
-    <div class="lights"></div>
-    <h2 id="formTitle">Sign In</h2>
-
-    <form id="authForm">
-      <input type="hidden" name="type" id="formType" value="Sign In" />
-
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Enter email" required />
-      </div>
-
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter password" required />
-      </div>
-
-      <div class="form-group" id="confirmPasswordGroup" style="display: none;">
-        <label for="confirmPassword">Confirm Password</label>
-        <input type="password" id="confirmPassword" placeholder="Confirm password" />
-      </div>
-
-      <button class="btn" type="submit">Continue</button>
-      <div class="toggle-link" onclick="toggleForm()">Don't have an account? Sign Up</div>
-    </form>
+    <div class="left-panel">
+    <video autoplay muted loop>
+      <source src="Loginbg.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
+  <div class="right-panel">
+    <div class="auth-box">
+      <h2 id="formTitle">Sign In to AI Fit</h2>
+      <button class="google-btn" id="googleSignInBtn">Sign in with Google</button>
 
- <script src="Login.js"></script>
+      <div class="form-separator">or sign in with email</div>
 
+      <form id="authForm">
+        <input type="hidden" id="formType" value="Sign In" />
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password <a href="#" onclick="sendResetEmail()" style="float: right; font-size: 12px; color: #00eaff;">Forgot?</a></label>
+          <input type="password" id="password" placeholder="Enter your password" required />
+        </div>
+        <div class="form-group" id="confirmPasswordGroup" style="display: none;">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" placeholder="Confirm your password" />
+        </div>
+        <button class="btn" type="submit" id="submitBtn">Sign In</button>
+      </form>
+
+      <div class="form-footer">
+        Don't have an account? <a onclick="toggleForm()">Sign up</a>
+      </div>
+    </div>
+  </div>
+  <!-- Firebase Authentication -->
+  <script type="module" src="Login.js"></script>
+  
 </body>
 </html>

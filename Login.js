@@ -1,80 +1,100 @@
-const formTitle = document.getElementById('formTitle');
-const toggleLink = document.querySelector('.toggle-link');
-const formType = document.getElementById('formType');
-const confirmPasswordGroup = document.getElementById('confirmPasswordGroup');
-const form = document.getElementById('authForm');
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+  import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    GoogleAuthProvider,
+    signInWithPopup,
+    sendPasswordResetEmail
+  } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
 
-let isSignUp = false;
+  const firebaseConfig = {
+    apiKey: "AIzaSyD5MHci3Zl_DMVhjG_3YDP9v_u0kMSXaFM",
+    authDomain: "aifit-ff041.firebaseapp.com",
+    projectId: "aifit-ff041",
+    storageBucket: "aifit-ff041.appspot.com",
+    messagingSenderId: "383396399714",
+    appId: "1:383396399714:web:68219a70a2ebe8f6729f3b",
+    measurementId: "G-HB50VSM746"
+  };
 
-function toggleForm() {
-  isSignUp = !isSignUp;
-  formTitle.textContent = isSignUp ? 'Sign Up' : 'Sign In';
-  toggleLink.textContent = isSignUp
-    ? 'Already have an account? Sign In'
-    : "Don't have an account? Sign Up";
-  formType.value = isSignUp ? "Sign Up" : "Sign In";
-  confirmPasswordGroup.style.display = isSignUp ? 'block' : 'none';
-}
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const formTitle = document.getElementById("formTitle");
+  const formType = document.getElementById("formType");
+  const confirmPasswordGroup = document.getElementById("confirmPasswordGroup");
+  const form = document.getElementById("authForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const googleBtn = document.getElementById("googleSignInBtn");
 
-form.addEventListener('submit', async function(e) {
-  e.preventDefault();
+  let isSignUp = false;
 
-  const email = document.getElementById('email').value.trim();
-  const password = document.getElementById('password').value.trim();
-  const confirmPassword = document.getElementById('confirmPassword')?.value.trim();
+  window.toggleForm = function () {
+    isSignUp = !isSignUp;
+    formTitle.textContent = isSignUp ? "Sign Up for AI Fit" : "Sign In to AI Fit";
+    formType.value = isSignUp ? "Sign Up" : "Sign In";
+    submitBtn.textContent = isSignUp ? "Sign Up" : "Sign In";
+    confirmPasswordGroup.style.display = isSignUp ? "block" : "none";
+  };
 
-  if (isSignUp) {
-    if (!confirmPassword || password !== confirmPassword) {
-      alert("Passwords do not match.");
-      return;
-    }
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const confirmPassword = document.getElementById("confirmPassword")?.value.trim();
 
-    // Save to localStorage (for demo purposes)
-    localStorage.setItem(`user_${email}`, password);
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Processing...";
 
-    // 🔁 Send data to Formcarry
-    const FORMCARRY_ENDPOINT = "https://formcarry.com/s/AYwj_OXdzKo"; // Replace if needed
     try {
-      const response = await fetch(FORMCARRY_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: JSON.stringify({ email, password })
-      });
-
-      const result = await response.json(); // 👈 read Formcarry's JSON response
-
-      if (response.ok) {
-        alert("✅ Account created successfully via Formcarry!");
+      if (formType.value === "Sign Up") {
+        if (password !== confirmPassword) {
+          alert("❌ Passwords do not match.");
+          resetBtn();
+          return;
+        }
+        await createUserWithEmailAndPassword(auth, email, password);
+        alert("✅ Account created!");
         toggleForm();
       } else {
-        console.error(result);
-        alert("❌ Formcarry error: " + (result.message || "Something went wrong"));
+        await signInWithEmailAndPassword(auth, email, password);
+        alert("🎉 Login successful!");
+        setTimeout(() => window.location.href = "Main.html", 1000);
       }
     } catch (err) {
-      alert("⚠️ Formcarry submission failed: " + err.message);
+      alert("❌ " + err.message);
     }
 
-  } else {
-    // Sign In logic
-    const storedPassword = localStorage.getItem(`user_${email}`);
-    if (!storedPassword) {
-      alert("User not found. Please sign up.");
-      toggleForm();
-      return;
-    }
+    resetBtn();
+  });
 
-    if (storedPassword !== password) {
-      alert("Incorrect password.");
-      return;
+  googleBtn.addEventListener("click", async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      alert("🎉 Signed in as " + user.displayName);
+      setTimeout(() => window.location.href = "Main.html", 1000);
+    } catch (error) {
+      alert("❌ Google Sign-In failed: " + error.message);
     }
+  });
 
-    alert("Login successful! 🎉");
-    setTimeout(() => {
-      localStorage.setItem("currentUser", email); // store user info
-      window.location.href = "Main.html"; // Redirect
-    }, 1000);
+  function resetBtn() {
+    submitBtn.disabled = false;
+    submitBtn.textContent = isSignUp ? "Sign Up" : "Sign In";
   }
-});
+
+  window.sendResetEmail = async function () {
+    const email = document.getElementById("email").value.trim();
+    if (!email) {
+      alert("⚠️ Please enter your email address first.");
+      return;
+    }
+    try {
+      await sendPasswordResetEmail(auth, email);
+      alert("📧 Password reset email sent. Check your inbox.");
+    } catch (err) {
+      alert("❌ " + err.message);
+    }
+  }
